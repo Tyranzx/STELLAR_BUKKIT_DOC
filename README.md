@@ -65,3 +65,13 @@ public boolean onCommand(CommandSender sender, Command command, String label, St
 	return false;
 }
 ```
+### Peró in questo caso stiamo solo verificando, se verifichiamo se "sender" é un giocatore e usiamo "sender" ci dará errore in alcune cose, non sempre, solo quando cercheremo di fare cose con "sender" che appartengono alla classe "Player".
+### Per trasformare il nostro sender in un sender di tipo "Player" dobbiamo averlo cosi:
+```java
+public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+	if (sender instanceof Player) {
+	Player p = (Player) sender;
+	}
+	return false;
+}
+```
