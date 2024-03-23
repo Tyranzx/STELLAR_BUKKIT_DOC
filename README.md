@@ -33,3 +33,35 @@ public class Loader extends JavaPlugin {
 ### Ricordiamoci che son solo due metodi da mettere, rispettando le maiuscole, perché il nostro plugin funzioni come noi vogliamo.
 ### Unicamente "onEnable" é importante per registrare comandi, mandare messaggi, registrare classi o eseguire azioni e/o istruzioni preparate con certe scopi.
 ### Nel metodo "onDisable" metteremo le cose che ci serviranno eseguire per quando il server, per esempio, si stia chiudendo.
+## [🤖] COMANDI
+### Passiamo subito alla creazione di un comando, poiché non ha senso spiegare, secondo noi, il resto di cose che si potrebbero scoprire piú in avanti.
+```java
+public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		
+	return false;
+}
+```
+### Partiamo con sto pezzo di codice, per spiegare alcune cose e capire la struttura di questo metodo di tipo boolean chiamato "onCommand" (Importante che sia messo come vedete, tranne i parametri (quelli dentro le parentesi), altrimenti il plugin non lo riconosce come la struttura di un comando).
+### "CommandSender sender", é un parametro che potete cambiare il nome se volete, tipo "CommandSender oa", ma dovreste usare "oa" da quel momento in poi.
+### Cos'é? "send" = "mandare" giusto? "command" = "comando", con questo capiamo che "CommandSender" é colui che manda il comando.
+## ATTENZIONE:
+### Non si sta specificando il tipo di sender, si sá solo che é un qualcosa che manda il comando, che lo esegue, ma non specifica se é la console o un giocatore.
+### Per verificare se é un giocatore o no:
+```java
+public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+	if (sender instanceof ConsoleCommandSender) {
+//	☝ In java, "instanceof", fa riferimento a "é di tipo", in questo caso:
+//  	 Verifica che sia un commandSender di tipo "Console"
+// 	->   ConsoleCommandSender
+	}
+	return false;
+}
+```
+```java
+public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+	if (sender instanceof Player) {
+//  	 Verifica che sia un commandSender di tipo "Player" (Giocatore)
+	}
+	return false;
+}
+```
