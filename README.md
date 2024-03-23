@@ -86,13 +86,15 @@ public boolean onCommand(CommandSender sender, Command command, String label, St
 		
 		Player p = (Player) sender;
 		
-		// Qui possiamo usare p per tutte le condizioni che metteremo.
+		// Qui possiamo usare p per tutte le condizioni che metteremo d'ora in poi.
 		// ES:
+
 		if (p.hasPermission("qualsiasi.permesso.tu.voglia.creare")) {
 			p.sendMessage("Non hai permessi per eseguire.");
 			return true; // RETURN IMPORTANTE
 		}
 		
-		return false;
+		return false;      // É IRRELEVANTE
 	}
 ```
+### Il return in questo caso é importante, per il primo "RETURN IMPORTANTE", se non lo mettessimo, se il sender non é di tipo Player ed esegue il comando, manderá il messaggio di "Non sei un giocatore.....", ok, peró, manderá pure il resto di codice che c'é sotto, perché? Perché non ritorniamo nessun valore. Ricordiamo che questo metodo é di tipo "boolean", quindi deve ritornare o false o true.
