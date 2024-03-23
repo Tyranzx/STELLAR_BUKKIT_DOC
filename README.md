@@ -34,7 +34,14 @@ public class Loader extends JavaPlugin {
 ### Unicamente "onEnable" é importante per registrare comandi, mandare messaggi, registrare classi o eseguire azioni e/o istruzioni preparate con certe scopi.
 ### Nel metodo "onDisable" metteremo le cose che ci serviranno eseguire per quando il server, per esempio, si stia chiudendo.
 ## [🤖] COMANDI
-### Passiamo subito alla creazione di un comando, poiché non ha senso spiegare, secondo noi, il resto di cose che si potrebbero scoprire piú in avanti.
+### Passiamo subito alla creazione di un comando, poiché non ha senso spiegare, secondo noi, il resto di cose che si potrebbero scoprire piú in avanti.}
+### Per creare un comando, ci deve implementare "CommandExecutor".
+```java
+public class Loader extends JavaPlugin implements CommandExecutor {
+
+}
+```
+### Poi aggiungere manuale o automaticamente questo metodo di tipo "boolean".
 ```java
 public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		
@@ -98,3 +105,11 @@ public boolean onCommand(CommandSender sender, Command command, String label, St
 	}
 ```
 ### Il return in questo caso é importante, per il primo "RETURN IMPORTANTE", se non lo mettessimo, se il sender non é di tipo Player ed esegue il comando, manderá il messaggio di "Non sei un giocatore.....", ok, peró, manderá pure il resto di codice che c'é sotto, perché? Perché non ritorniamo nessun valore. Ricordiamo che questo metodo é di tipo "boolean", quindi deve ritornare o false o true.
+### Per registrarlo é semplice, dobbiamo aggiungerlo nel main, scrivendo:
+```java
+getCommand().setExecutor(new LaClasseDelComandO());
+```
+### Quindi, se lo facciamo nella stessa classe, facciamo:
+```java
+getCommand().setExecutor(this);
+```
