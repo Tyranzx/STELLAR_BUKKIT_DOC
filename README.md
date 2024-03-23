@@ -71,7 +71,28 @@ public boolean onCommand(CommandSender sender, Command command, String label, St
 public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 	if (sender instanceof Player) {
 	Player p = (Player) sender;
-	}
+	} // <- Fine...
 	return false;
 }
+```
+### Con "Fine" si intende che, per usare "p", dobbiamo scrivere prima della parentesi "}".
+### Quindi preferibilmente é consigliabile, se il giocatore non é di tipo "Player", di ritornare indietro e non fare niente o di mandare un messaggio dicendo che non si é un giocatore.
+```java
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		if (!(sender instanceof Player)) { // Se non é un giocatore...
+			sender.sendMessage("Non sei un giocatore per eseguire questo comando.");
+			return true; // RETURN IMPORTANTE
+		}
+		
+		Player p = (Player) sender;
+		
+		// Qui possiamo usare p per tutte le condizioni che metteremo.
+		// ES:
+		if (p.hasPermission("qualsiasi.permesso.tu.voglia.creare")) {
+			p.sendMessage("Non hai permessi per eseguire.");
+			return true; // RETURN IMPORTANTE
+		}
+		
+		return false;
+	}
 ```
