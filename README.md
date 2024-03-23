@@ -13,6 +13,7 @@ Documentazione, non corso, di Bukkit | by StellarSquad
 ### 
 ### In conclusione, servirá per aprire la mente e togliere alcuni dubbi a alcune persone che stanno imparando.
 ### Utilizzeremo Eclipse per gli esempi e/o esempi scritti per MD (Gli stessi avuti nella doc precendente di java)
+### Piccolo spoiler: Per il KitPVP o Bedwars non servono API esterne da acquistare, ecc. Nel senso che tutto lo si puó fare se si ha pazienza e conoscenze sufficienti.
 ###
 ## [👋] Il nostro primo "Hello world" in Bukkit
 ### Per la creazione della classe principale, ovvero la classe la quale il contenuto sará eseguito per primo, dobbiamo estendere "JavaPlugin".
